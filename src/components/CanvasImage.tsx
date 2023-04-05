@@ -6,12 +6,12 @@ const CANVAS_HEIGHT = 300;
 
 interface ICanvasImage {
   src: string,
-  alt: string,
+  
 }
 
 const CanvasImage = ({
   src,
-  alt
+  
 } : ICanvasImage) => { 
 
   const [editState, SetEditState] = useState(false)
@@ -108,8 +108,8 @@ const cancelModal = () => {
     <>
       <div className='text-center'> 
       <canvas ref={canvasRef} width={CANVAS_WIDTH} height={CANVAS_HEIGHT} onClick={deletePixel} className={`mx-auto mt-1 mb-1 ${editState ? 'block' : 'hidden'}`} />
-      <img ref={imageRef} src={image} alt={alt} className={`mx-auto mt-1 mb-1 ${editState ? 'hidden' : 'block'}`} crossOrigin="anonymous" width={CANVAS_WIDTH} height={CANVAS_HEIGHT}/>
-      <h3>{alt}</h3>
+      <img ref={imageRef} src={image} className={`mx-auto mt-1 mb-1 ${editState ? 'hidden' : 'block'}`} crossOrigin="anonymous" width={CANVAS_WIDTH} height={CANVAS_HEIGHT}/>
+      
       <div className={`mx-auto mt-1 mb-1 ${styles.sobtn}`} onClick={ editState ? saveImage : editImage}>{ editState ? "Save" : "Edit"}</div>
       <div className={`mx-auto mt-1 mb-1 ${styles.sobtn}`} onClick={ editState ? cancelImage : () => setShowModal(true)}>{ editState ? "Cancel" : "Request Edit"}</div>
     </div>

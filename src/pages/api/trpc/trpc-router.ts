@@ -7,7 +7,7 @@ const t = initTRPC.create({
 
 export const appRouter = t.router({
   getUsers: t.procedure.query(({ ctx }) => {
-    return userList;
+    return new Array(50).fill(0).map((item, idx) => ({ id: (idx + 1).toString()}));
   }),
 });
 
@@ -17,9 +17,10 @@ export type AppRouter = typeof appRouter;
 
 interface User {
   id: string;
-  name: string;
-  email: string;
+  name?: string;
+  email?: string;
 }
+
 
 const userList: User[] = [
   {

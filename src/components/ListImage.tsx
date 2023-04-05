@@ -8,8 +8,7 @@ import CanvasImage from './CanvasImage'
 export default function ListUsers() {
   let { data: users, isLoading, isFetching } = trpc.getUsers.useQuery();
   
-  if (isLoading || isFetching) {
-    
+  if (isLoading || isFetching) {    
     return <p>Loading...</p>;
   }
 
@@ -24,8 +23,7 @@ export default function ListUsers() {
       {users?.map((user) => (              
           <CanvasImage
             key={user.id}
-            src={`https://robohash.org/${user.id}?set=set2&size=150x150`}
-            alt={user.name}            
+            src={`https://robohash.org/${user.id}?set=set2&size=150x150`}                       
           />                  
       ))}
     </div>
